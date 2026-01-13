@@ -16,3 +16,18 @@ Ce projet implémente un pipeline CI/CD sécurisé pour Docker avec :
 - SBOM (Software Bill of Materials)
 
 ## Architecture de Sécurité
+Code → SAST → Hadolint → Build → Trivy → Security Gates → GHCR
+
+## Sécurité de l'Image
+
+- Image de base : nginx:alpine (version spécifique)
+- Utilisateur non-root
+- Headers de sécurité renforcés
+- Health checks
+- Pas de secrets dans l'image
+
+## Exécution Locale
+
+```bash
+docker pull ghcr.io/[username]/devops-tp-docker-[nom]:main
+docker run -p 8080:8080 ghcr.io/[username]/devops-tp-docker-[nom]:main
