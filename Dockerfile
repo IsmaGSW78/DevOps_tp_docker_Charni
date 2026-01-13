@@ -1,6 +1,5 @@
-# Utiliser une version spécifique (pas latest)
-FROM nginx:1.25.3-alpine
-
+# Utiliser la dernière version stable
+FROM nginx:1.25.4-alpine
 # Métadonnées
 LABEL maintainer="TP DevOps"
 LABEL description="Application DevOps sécurisée"
