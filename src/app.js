@@ -29,7 +29,7 @@ function testContainer() {
         statusElement.textContent = 'Container opérationnel';
         statusElement.style.color = '#16A34A';
         
-        resultBox.innerHTML = `
+        resultBox.textContent = `
             <strong>Test du Container Réussi</strong><br><br>
             docker ps<br>
             CONTAINER ID   IMAGE                                    STATUS<br>
