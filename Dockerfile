@@ -1,5 +1,5 @@
 # Utiliser la dernière version stable
-FROM nginx:1.25.4-alpine
+FROM nginx:1.29.5-alpine
 # Métadonnées
 LABEL maintainer="TP DevOps"
 LABEL description="Application DevOps sécurisée"
@@ -10,9 +10,9 @@ RUN addgroup -g 1000 -S appgroup && \
     adduser -u 1000 -S appuser -G appgroup
 
 # Installer uniquement les dépendances nécessaires
-RUN apk add --no-cache \
-    ca-certificates \
-    && rm -rf /var/cache/apk/*
+RUN apk upgrade --no-cache && \
+    apk add --no-cache ca-certificates && \
+    rm -rf /var/cache/apk/*
 
 # Copier la configuration Nginx
 COPY --chown=appuser:appgroup nginx/nginx.conf /etc/nginx/conf.d/default.conf
